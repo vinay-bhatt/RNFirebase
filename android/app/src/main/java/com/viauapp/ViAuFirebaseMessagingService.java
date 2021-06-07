@@ -79,7 +79,7 @@ public class ViAuFirebaseMessagingService extends FirebaseMessagingService {
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
 		// notification action buttons start
-		PendingIntent acptIntent = MainActivity.getActionIntent(oneTimeID,uri,this);
+		PendingIntent acptIntent = MainActivity.getAcceptActionIntent(oneTimeID,uri,this);
 		PendingIntent rjctIntent = MainActivity.getActionIntent(oneTimeID,uri, this);
 
 		NotificationCompat.Action rejectCall=new NotificationCompat.Action.Builder(R.drawable.rjt_btn,getActionText("Decline",android.R.color.holo_red_light),rjctIntent).build();
@@ -146,4 +146,6 @@ public class ViAuFirebaseMessagingService extends FirebaseMessagingService {
 		}
 		return true; // App is in background or foreground
 	}
+
+	  
 }

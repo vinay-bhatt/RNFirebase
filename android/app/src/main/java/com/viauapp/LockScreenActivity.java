@@ -84,6 +84,8 @@ public class LockScreenActivity extends ReactActivity implements LockScreenActiv
             }
         final String host_name = "Alex";
         final Boolean isAppRuning=intent.getBooleanExtra("APP_STATE",false);
+        final ReactContext reactContext = getReactInstanceManager().getCurrentReactContext();
+
 
         TextView tvName = (TextView)findViewById(R.id.callerName);
         tvName.setText(host_name);
@@ -97,12 +99,18 @@ public class LockScreenActivity extends ReactActivity implements LockScreenActiv
             public void onClick(View view) {
                 WritableMap params = Arguments.createMap();
                 params.putBoolean("done", true);
+                    String para="doneeeee";
+
+                    Log.e("paramsparams", para);
                 removeNotification(fallBack,notifID);
                 
                     String deeplinkUri="viauapp://";
                     Uri uri = Uri.parse(deeplinkUri);
                     Log.e("deeplinkUri", uri.toString());
+
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    sendEvent(reactContext, "accept", params);
+
                     finish();
                     startActivity(intent);
          
@@ -120,10 +128,13 @@ public class LockScreenActivity extends ReactActivity implements LockScreenActiv
                 if(isAppRuning){
                     Intent intent = new Intent(LockScreenActivity.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY );
+                    sendEvent(reactContext, "reject", params);
+
                     finish();
                     startActivity(intent);
                 }
                 else{
+                    sendEvent(reactContext, "reject", params);
                     finish();
                 }
             }
@@ -166,6 +177,14 @@ public class LockScreenActivity extends ReactActivity implements LockScreenActiv
     @Override
     public void onIncoming(ReadableMap params) {
 
+    }
+
+    private void sendEvent(ReactContext reactContext, String eventName, WritableMap params) {
+        System.out.println("*****************************************"+ params);
+
+        reactContext
+                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit(eventName, params);
     }
 
     private void removeNotification(Boolean fallBack,Integer notifID){

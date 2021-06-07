@@ -3,6 +3,10 @@ package com.viauapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.twiliorn.library.TwilioPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -27,6 +31,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new TwilioPackage(),
+            new SafeAreaContextPackage(),
+            new RNPermissionsPackage(),
+            new RNGestureHandlerPackage(),
           new RNFirebasePackage(),
           new RNFirebaseMessagingPackage(),
           new RNFirebaseNotificationsPackage()
@@ -43,6 +51,7 @@ public class MainApplication extends Application implements ReactApplication {
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
+
 
   @Override
   public void onCreate() {

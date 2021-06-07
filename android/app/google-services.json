@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "YOUR_PROJECT_NUMBER",
-    "project_id": "YOUR_PROJECT_ID",
-    "storage_bucket": "YOUR_STORAGE_URL"
+    "project_number": "696648072439",
+    "project_id": "chingakn-bd293",
+    "storage_bucket": "chingakn-bd293.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "YOUR_APP_SDK__ID",
+        "mobilesdk_app_id": "1:696648072439:android:86c87ec043c93587de27f2",
         "android_client_info": {
           "package_name": "com.viauapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "YOUR_CLIENT_ID",
+          "client_id": "696648072439-ies46p96jq8fg9rsguf4unngurme00vb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.viauapp",
+            "certificate_hash": "d800479dbb9c273bb071a0b6b761d3d18042b1ce"
+          }
+        },
+        {
+          "client_id": "696648072439-6mifn3c00acmbbhgpah08l4vr81vaags.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "YOUR_CLIENT_KEY"
+          "current_key": "AIzaSyC0SIV2WUvuqgO4fo93WJOR6Mrdqo6nBAk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "YOUR_CLIENT_ID",
+              "client_id": "696648072439-6mifn3c00acmbbhgpah08l4vr81vaags.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
